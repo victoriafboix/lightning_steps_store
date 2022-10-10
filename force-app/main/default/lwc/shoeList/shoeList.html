@@ -1,0 +1,40 @@
+<template>
+
+   <!-- Use Slds styling -->
+
+   <div class="slds-grid slds-grid_align-center">
+
+       <!-- Use lightning card as extra styling -->
+
+       <lightning-card title="Shoe list" icon-name="standard:shoe" class="slds-col slds-size_6-of-12">
+
+           <!-- Wrap my for each inside an unordered list -->
+
+           <ul class="slds-m-around_large">
+
+               <template for:each={shoes.data} for:item="shoe" for:index="index">
+
+                   <!-- Use account Id as the key directive -->
+
+                   <li key={shoe.Id}>
+                        {shoe.Name}  Category : {shoe.Category__c} Price : {shoe.Price__c}€  {shoe.Description__c}
+                        <br/>
+                       <img src={shoe.image_url__c} alt="Description of image" width="500" height="600"/>
+
+                       <!--Add to cart button-->
+                       <div class="slds-m-top_small slds-m-bottom_medium">
+                        <lightning-button variant="brand" label="Add to cart" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+                    </div>
+
+                   </li>
+
+               </template>
+
+           </ul>
+
+       </lightning-card>
+
+   </div>
+
+</template>
+

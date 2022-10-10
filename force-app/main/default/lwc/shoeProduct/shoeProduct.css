@@ -1,0 +1,12 @@
+h1 {
+    color: rgb(0, 112, 210);
+}
+p {
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+    color: rgb(209, 197, 197);
+}
+.mistol {
+    background-color: #e5e9e5;
+    height: 100vh;
+    overflow: scroll;
+}
