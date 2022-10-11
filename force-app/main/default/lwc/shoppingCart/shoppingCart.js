@@ -1,16 +1,46 @@
+import { LightningElement, track, wire } from 'lwc';
+// messageChannels
+import {
+	subscribe,
+	unsubscribe,
+	MessageContext
+} from "lightning/messageService";
+import CART_CHANNEL from "@salesforce/messageChannel/shoppingCartChannel__c";
 
-import {LightningElement, wire} from 'lwc';
+export default class ShoppingCart extends LightningElement {
+   @track cartData = [];
 
-//Import our apex method from the renderShoppingCart class
+   @wire(MessageContext)
+	messageContext;
 
-import getOrderRecords from '@salesforce/apex/RenderShoppingCart.getOrderRecords';
+   shoeListSubscription;
 
+   connectedCallback() {
+      console.log("subscribing to shoeListSubscription")
+      this.shoeListSubscription = subscribe(
+         this.messageContext,
+         CART_CHANNEL,
+         (message) => handleIncomingMessage(message)
+      )
+	}
 
-export default class renderShoppingCartt extends LightningElement {
+	disconnectedCallback() {
+      console.log("unsubscribing to shoeListSubscription")
+		unsubscribe(this.shoeListSubscription);
+		this.shoeListSubscription = null;
+	}
 
-   //Retrieve the product records
+   handleIncomingMessage(message) {
+      console.log("message " + JSON.stringify(message));
+      let cartAction = message.action.cartAction;
 
-   @wire(getOrderRecords) orders;
+      if (cartAction == 'Add') {
+         this.cartData.push(message.cartData);
+      } else if (cartAction == 'Remove') {
+         let selectedProductId = cartData.productId;
+         this.cartData = this.cartData.filter(it => it.productId != selectedProductId);
+      }
 
+      console.log(this.cartData);
+   }
 }
-

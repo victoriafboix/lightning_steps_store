@@ -11,19 +11,15 @@
             <!-- Wrap my for each inside an unordered list -->
  
             <ul class="slds-m-around_large">
+                
  
-                <template for:each={orders.data} for:item="order" for:index="index">
+                <template for:each={cardData} for:item="shoe" for:index="index">
  
                     <!-- Use account Id as the key directive -->
  
-                    <li key={order.Id}>
-                     
-                         {order.Name}   Price : {order.Price__c}€ 
+                    <li key={shoe.productId}>
+                         {shoe.Name}   Price : {shoe.price}€ 
                          <br/>
-                      
- 
-                        
- 
  
                     </li>
  

@@ -5,7 +5,7 @@ import {LightningElement, wire} from 'lwc';
 import getShoeRecords from '@salesforce/apex/RenderShoeList.getShoeRecords';
 
 
-export default class RenderShoeList extends LightningElement {
+export default class ShoeList extends LightningElement {
 
 
 
