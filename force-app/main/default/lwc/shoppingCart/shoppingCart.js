@@ -16,22 +16,23 @@ export default class ShoppingCart extends LightningElement {
    shoeListSubscription;
 
    connectedCallback() {
-      console.log("subscribing to shoeListSubscription")
-      this.shoeListSubscription = subscribe(
-         this.messageContext,
-         CART_CHANNEL,
-         (message) => handleIncomingMessage(message)
-      )
+      if (this.shoeListSubscription == null) {
+         console.log("Subscribing to shoeListSubscription ");
+         this.shoeListSubscription = subscribe(
+            this.messageContext,
+            CART_CHANNEL,
+            (message) => this.handleIncomingMessage(message)
+         );
+      }
 	}
 
 	disconnectedCallback() {
-      console.log("unsubscribing to shoeListSubscription")
-		unsubscribe(this.shoeListSubscription);
+      unsubscribe(this.shoeListSubscription);
 		this.shoeListSubscription = null;
 	}
 
    handleIncomingMessage(message) {
-      console.log("message " + JSON.stringify(message));
+      console.log("handleIncomingMessage " + JSON.stringify(message));
       let cartAction = message.action.cartAction;
 
       if (cartAction == 'Add') {

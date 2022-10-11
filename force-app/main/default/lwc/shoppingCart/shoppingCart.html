@@ -1,35 +1,15 @@
 <template>
+    <lightning-card title="Shopping Cart" icon-name="custom:custom14">
+        <ul class="slds-m-around_medium">
+            <template for:each={cartData} for:item="data">
+                <li key={data.Id}>
+                    {data.Name}
+                    Quantity: {data.quantity}
+                    Price: {data.price}
+                    Total price: {data.totalPrice}
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+</template>
 
-    <!-- Use Slds styling -->
- 
-    <div class="slds-grid slds-grid_align-center">
- 
-        <!-- Use lightning card as extra styling -->
- 
-        <lightning-card title="Shopping cart" icon-name="standard:order" class="slds-col slds-size_6-of-12">
- 
-            <!-- Wrap my for each inside an unordered list -->
- 
-            <ul class="slds-m-around_large">
-                
- 
-                <template for:each={cardData} for:item="shoe" for:index="index">
- 
-                    <!-- Use account Id as the key directive -->
- 
-                    <li key={shoe.productId}>
-                         {shoe.Name}   Price : {shoe.price}€ 
-                         <br/>
- 
-                    </li>
- 
-                </template>
- 
-            </ul>
-            
- 
-        </lightning-card>
- 
-    </div>
- 
- </template>

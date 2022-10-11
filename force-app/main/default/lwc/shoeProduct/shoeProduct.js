@@ -55,7 +55,7 @@ export default class ShoeProduct extends LightningElement {
 			quantity: this.quantity,
 			Name : this.shoe.Name,
 			price : this.shoe.Price__c,
-			totalPrice : (this.quantity * this.shoe.Price__c),
+			totalPrice : (this.quantity * this.shoe.Price__c)
 		}
 		this.publishChange(cartData, 'Add');
 	}
