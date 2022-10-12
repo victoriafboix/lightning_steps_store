@@ -37,6 +37,7 @@ export default class ShoppingCart extends LightningElement {
 
       if (cartAction == 'Add') {
          this.cartData.push(message.cartData);
+         
       } else if (cartAction == 'Remove') {
          let selectedProductId = cartData.productId;
          this.cartData = this.cartData.filter(it => it.productId != selectedProductId);

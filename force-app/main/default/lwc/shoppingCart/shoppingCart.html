@@ -1,12 +1,14 @@
 <template>
-    <lightning-card title="Shopping Cart" icon-name="custom:custom14">
+    <lightning-card title="Shopping Cart" icon-name="custom:custom88">
         <ul class="slds-m-around_medium">
             <template for:each={cartData} for:item="data">
                 <li key={data.Id}>
-                    {data.Name}
-                    Quantity: {data.quantity}
-                    Price: {data.price}
-                    Total price: {data.totalPrice}
+                    <ul>
+                        <li class="slds-var-p-around_xx-small slds-var-m-top_x-small slds-truncate slds-text-title_caps bold-text"> {data.Name}</li>
+                        <li>Quantity: {data.quantity}</li>
+                        <li>Price: {data.price}€</li>
+                        <li>Total price: {data.totalPrice}€</li>
+                    </ul>
                 </li>
             </template>
         </ul>

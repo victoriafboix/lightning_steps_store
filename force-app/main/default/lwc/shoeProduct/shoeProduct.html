@@ -4,7 +4,10 @@
         <!-- Use account Id as the key directive -->
 
         <h1 class="slds-var-p-around_xx-small slds-var-m-top_x-small slds-truncate slds-text-title_caps bold-text"> {shoe.Name} </h1>
-        Category : {shoe.Category__c} Price : {shoe.Price__c}€ {shoe.Description__c}
+        <h2>Category : {shoe.Category__c}</h2>
+        <h2>Price : {shoe.Price__c}€</h2>
+        <h2>{shoe.Description__c}</h2>
+        
         <br />
         <img src={shoe.image_url__c} alt="Description of image" width="500" height="600" />
 
