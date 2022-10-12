@@ -1,3 +1,14 @@
 <template>
-    <h1>Search</h1>
+    <lightning-card title="Filters" icon-name="standard:search">
+        <div class="slds-var-m-horizontal_medium">
+            <lightning-input
+                id="searchField"
+                label="Search Key"
+                type="search"
+                onchange={handleSearchKeyChange}></lightning-input>
+        </div>
+    </lightning-card>
+    <footer>
+        <lightning-button label="Filter Products" onclick={handleFormSubmit} class="slds-p-around_x-small"></lightning-button>
+    </footer>
 </template>

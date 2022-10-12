@@ -56,4 +56,10 @@
   width: 30px;
 }
   
+
+[flexipage-component2_component2-host] {
+  display: block;
+  column-gap: 50px;
+  row-gap: 50px;
+}
   

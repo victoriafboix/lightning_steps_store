@@ -17,7 +17,6 @@ export default class ShoppingCart extends LightningElement {
 
    connectedCallback() {
       if (this.shoeListSubscription == null) {
-         console.log("Subscribing to shoeListSubscription ");
          this.shoeListSubscription = subscribe(
             this.messageContext,
             CART_CHANNEL,
@@ -32,17 +31,13 @@ export default class ShoppingCart extends LightningElement {
 	}
 
    handleIncomingMessage(message) {
-      console.log("handleIncomingMessage " + JSON.stringify(message));
       let cartAction = message.action.cartAction;
 
       if (cartAction == 'Add') {
          this.cartData.push(message.cartData);
          
       } else if (cartAction == 'Remove') {
-         let selectedProductId = cartData.productId;
-         this.cartData = this.cartData.filter(it => it.productId != selectedProductId);
+         this.cartData = this.cartData.filter(it => it.productId != cartData.productId);
       }
-
-      console.log(this.cartData);
    }
 }
