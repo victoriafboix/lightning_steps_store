@@ -7,11 +7,14 @@
                         <li class="slds-var-p-around_xx-small slds-var-m-top_x-small slds-truncate slds-text-title_caps bold-text"> {data.Name}</li>
                         <li>Quantity: {data.quantity}</li>
                         <li>Price: {data.price}€</li>
-                        <li>Total price: {data.totalPrice}€</li>
+                        <!-- <li>Total price: {data.totalPrice}€</li> -->
                     </ul>
                 </li>
             </template>
         </ul>
+        <lightning-button if:false={isCartEmpty} variant="success" label="Order"
+                        title="Order" onclick={createOrder}>
+                    </lightning-button>
     </lightning-card>
 </template>
 

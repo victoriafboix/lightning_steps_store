@@ -14,13 +14,13 @@ import FILTER_PRODUCTS from '@salesforce/messageChannel/filterProductsChannel__c
 export default class ShoeList extends LightningElement {
 
    /**
-   * Load the list of available products.
+   * Load the list of shoes.
    */
    @wire(getProducts, { filters: '$filters' }) shoes;
 
    @wire(MessageContext) messageContext;
  
-	 /** JSON.stringified version of filters to pass to apex */
+	 /** Filters for filtering the list during the product search */
 	 filters = {};
 
 	/** Subscription for ProductsFiltered Lightning message */
@@ -28,6 +28,7 @@ export default class ShoeList extends LightningElement {
   
 	connectedCallback() {
 		if (this.filterProductsSubscription == null) {
+			// We start listening to messages in FILTER_PRODUCTS channel
 			this.filterProductsSubscription = subscribe(
 				this.messageContext,
 				FILTER_PRODUCTS,

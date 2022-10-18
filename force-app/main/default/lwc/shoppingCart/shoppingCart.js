@@ -1,4 +1,4 @@
-import { LightningElement, track, wire } from 'lwc';
+import { LightningElement, track, wire, api } from 'lwc';
 // messageChannels
 import {
 	subscribe,
@@ -14,6 +14,7 @@ export default class ShoppingCart extends LightningElement {
 	messageContext;
 
    shoeListSubscription;
+   isCartEmpty = true;
 
    connectedCallback() {
       if (this.shoeListSubscription == null) {
@@ -39,5 +40,17 @@ export default class ShoppingCart extends LightningElement {
       } else if (cartAction == 'Remove') {
          this.cartData = this.cartData.filter(it => it.productId != cartData.productId);
       }
+
+      this.isCartEmpty = this.cartData.length == 0;
    }
+
+
+   @api
+	get cartEmpty() {
+		return this.isCartEmpty;
+	}
+
+	set cartEmpty(value) {
+		this.isCartEmpty = value;
+	}
 }

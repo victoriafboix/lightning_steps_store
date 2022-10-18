@@ -71,8 +71,10 @@ export default class ShoeProduct extends LightningElement {
 		
 	}
 
-	change(event) {
-		this.quantity = event.target.value;
+	changeQuantity(event) {
+		if (event.target) {
+			this.quantity = event.target.value;
+		}
 	}
 
 
