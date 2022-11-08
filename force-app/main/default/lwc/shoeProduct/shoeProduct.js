@@ -81,4 +81,12 @@ export default class ShoeProduct extends LightningElement {
 	get totalPrice() {
 		return this.quantity * this.shoe.Price__c;
 	}
+
+	
+
+	
 }
+
+
+
+

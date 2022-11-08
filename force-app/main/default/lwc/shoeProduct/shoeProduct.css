@@ -1,12 +1,99 @@
-h1 {
-    color: rgb(0, 112, 210);
+.image {
+	height: 250px;
+	background-position: center;
+	background-size: cover;
+	border-radius: 5px;
+	padding: var(--lwc-borderWidthThin, 1px) !important;
 }
-p {
-    font-family: 'Salesforce Sans', Arial, sans-serif;
-    color: rgb(209, 197, 197);
+
+.bold-text {
+	font-weight: bold;
 }
-.mistol {
-    background-color: #e5e9e5;
-    height: 100vh;
-    overflow: scroll;
+
+img {
+    object-fit: cover;
+    width: 33vh;
+    height: 33vh;
+  }
+  [c-shoeProduct_shoeProduct] {
+    margin: 8px;
+    padding: 0;
+  }
+  
+  /*Description Accordion */
+ 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font: 16px/1 'Open Sans', sans-serif;
+  color: #555;
+  background: #e5e5e5;
+}
+
+body {
+  padding: 50px;
+}
+
+.accordion{
+	transform: translateZ(0);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.accordion > .accordion-toggle{
+	position: absolute;
+	opacity: 0;
+	display: none;
+}
+
+.accordion > label{
+	position: relative;
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+	font-size: 14px;
+	font-weight: 700;
+	border-top: 1px solid #ddd;
+	background: #fff;
+	cursor: pointer;
+}
+
+.accordion > label:after {
+  content: '\f078';
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  font-family: fontawesome;
+  transform: rotate(90deg);
+  transition: .3s transform;
+}
+
+.accordion > section{
+	height: 0;
+	transition: .3s all;
+	overflow: hidden;
+}
+
+.accordion > .accordion-toggle:checked ~ label:after{
+ transform: rotate(0deg);
+}
+
+.accordion > .accordion-toggle:checked ~ section{
+  height: 200px;
+}
+
+.accordion > section p {
+  margin: 15px 0;
+  padding: 0 20px;
+  font-size: 12px;
+  line-height: 1.5;
 }

@@ -1,5 +1,5 @@
 <template>
-    <lightning-card title="Shoe List" icon-name="standard:shoe" class="slds-col slds-size_6-of-12">
+    <lightning-card title="Shoe List" icon-name="standard:shoe" class="slds-col slds-size_6-of-12" id="logo">
         <lightning-layout multiple-rows horizontal-align="center">
             <template if:true={shoes.data} for:each={shoes.data} for:item="shoe">
                 <lightning-layout-item key={shoe.Id} size="12" small-device-size="6" medium-device-size="4"
@@ -10,3 +10,5 @@
         </lightning-layout>
     </lightning-card>
 </template>
+
+

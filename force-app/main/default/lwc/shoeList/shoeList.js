@@ -45,6 +45,8 @@ export default class ShoeList extends LightningElement {
 	handleFilterChange(message) {
 		this.filters = message
 	}
+
+	
 }
 
 
