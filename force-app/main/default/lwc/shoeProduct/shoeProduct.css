@@ -14,15 +14,15 @@ img {
     object-fit: cover;
     width: 33vh;
     height: 33vh;
+    padding: 2px;
   }
-  [c-shoeProduct_shoeProduct] {
-    margin: 8px;
-    padding: 0;
+  
+  .accordion[c-shoeProduct_shoeProduct] > section[c-shoeProduct_shoeProduct] {
+    margin-bottom: 20px;
   }
   
   /*Description Accordion */
- 
-* {
+ * {
   margin: 0;
   padding: 0;
 }
@@ -68,7 +68,8 @@ body {
 }
 
 .accordion > label:after {
-  content: '\f078';
+    /* Pointer */
+  /* content: '\f078'; */
   position: absolute;
   top: 0px;
   right: 20px;

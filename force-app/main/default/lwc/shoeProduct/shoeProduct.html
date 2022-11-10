@@ -12,15 +12,8 @@
             <img src={shoe.image_url__c} alt="Description of image" width="500" height="600" />
         </div>
 
-        <div class="accordion">
-            <input id="toggle1" type="radio" class="accordion-toggle" name="toggle" />
-            <label for="toggle1">Description</label>
-            <section>
-            <p>{shoe.Description__c}</p>
-        </section>
-        </div>
+       
         
-
         <!-- Add to Cart button, Remove button and Quantity input -->
 
         <div class="slds-var-p-around_xx-small slds-text-body_small slds-container_fluid">
@@ -32,7 +25,7 @@
                 </lightning-layout-item>
                 <lightning-layout-item size="6" class="slds-var-p-left_xx-small">
                     <lightning-button if:false={addedToCart} variant="success" label="Add"
-                        title="Add" onclick={addToCart}> <br>
+                        title="Add" onclick={addToCart}> 
                     </lightning-button>
                     <lightning-button if:true={addedToCart} variant="destructive" label="Remove"
                         title="Remove" onclick={removeFromCart}>
@@ -40,5 +33,16 @@
                 </lightning-layout-item>
             </lightning-layout>
         </div>
+
+        <!-- Description -->
+
+        <div class="accordion">
+            <input id="toggle1" type="radio" class="accordion-toggle" name="toggle" />
+            <label for="toggle1">Description</label>
+            <section>
+            <p>{shoe.Description__c}</p>
+        </section>
+        </div> 
+
     </div>
-</template>
+</template> 
